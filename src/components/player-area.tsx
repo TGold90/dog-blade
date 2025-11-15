@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Card from './Card';
-import Deck from './Deck';
+import Card from './card';
+import Deck from './deck';
+
+interface CardType {
+  name: string;
+  atk: number;
+  hp: number;
+}
+
+interface PlayerAreaProps {
+  player: string;
+}
 
 // Function to generate a random fantasy monster name
-function generateRandomName() {
+function generateRandomName(): string {
   const prefixes = ['Fire', 'Ice', 'Shadow', 'Storm', 'Earth', 'Wind', 'Light', 'Dark'];
   const suffixes = ['Dragon', 'Golem', 'Phoenix', 'Troll', 'Elf', 'Orc', 'Goblin', 'Wraith'];
   const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
@@ -12,7 +22,7 @@ function generateRandomName() {
 }
 
 // Function to generate a random card
-function generateRandomCard() {
+function generateRandomCard(): CardType {
   return {
     name: generateRandomName(),
     atk: Math.floor(Math.random() * (100 - 10 + 1)) + 10, // Random atk between 10 and 100
@@ -21,13 +31,13 @@ function generateRandomCard() {
 }
 
 // Function to generate a deck of 10 random cards
-function generateDeck() {
+function generateDeck(): CardType[] {
   return Array.from({ length: 10 }, generateRandomCard);
 }
 
-function PlayerArea({ player }) {
-  const [deck, setDeck] = useState([]);
-  const [activeCard, setActiveCard] = useState(null);
+function PlayerArea({ player }: PlayerAreaProps) {
+  const [deck, setDeck] = useState<CardType[]>([]);
+  const [activeCard, setActiveCard] = useState<CardType | null>(null);
 
   useEffect(() => {
     setDeck(generateDeck());
@@ -67,4 +77,5 @@ function PlayerArea({ player }) {
   );
 }
 
-export default PlayerArea; 
+export default PlayerArea;
+

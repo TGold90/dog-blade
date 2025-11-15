@@ -1,6 +1,10 @@
 import React from 'react';
 
-function Deck({ onClick }) {
+interface DeckProps {
+  onClick?: () => void;
+}
+
+function Deck({ onClick }: DeckProps) {
   return (
     <div className="deck" onClick={onClick}>
       <p>Deck</p>
@@ -8,4 +12,4 @@ function Deck({ onClick }) {
   );
 }
 
-export default Deck; 
+export default Deck;

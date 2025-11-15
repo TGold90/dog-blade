@@ -1,6 +1,12 @@
 import React from 'react';
 
-function Card({ name, atk, hp }) {
+interface CardProps {
+  name: string;
+  atk?: number;
+  hp?: number;
+}
+
+function Card({ name, atk, hp }: CardProps) {
   return (
     <div className="card">
       <p>{name}</p>
@@ -14,4 +20,4 @@ function Card({ name, atk, hp }) {
   );
 }
 
-export default Card; 
+export default Card;

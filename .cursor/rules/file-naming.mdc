@@ -1,0 +1,56 @@
+---
+description: Enforce kebab-case file naming conventions across the entire project
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# File Naming Conventions
+
+## Kebab-case for all files
+- Use kebab-case (dash-separated lowercase) for all file names
+- Examples: `auth-service.ts`, `user-profile.tsx`, `api-client.js`
+- Avoid camelCase, PascalCase, or snake_case in file names
+
+## Specific naming patterns:
+
+### Components
+- `user-profile.tsx`, `login-form.tsx`
+
+### Services
+- `auth-service.ts`, `email-service.ts`  
+
+### Utils
+- `string-utils.ts`, `date-helpers.ts`
+
+### Tests
+- `auth-service.test.ts`, `user-profile.spec.tsx`
+
+### Types
+- `api-types.ts`, `user-types.ts`
+
+### Config
+- `eslint.config.js`, `jest.config.js`
+
+## Exceptions:
+- Standard configuration files: `package.json`, `tsconfig.json`, `README.md`
+- Framework conventions: `Dockerfile`, `Makefile`
+- Hidden files: `.env`, `.gitignore`
+
+## Examples
+
+✅ **Good:**
+```
+packages/domains/auth/src/interfaces/graphql/auth-resolvers.ts
+packages/shared/graphql-composer/src/schema-merger.ts
+apps/auth/src/middleware/rate-limiter.ts
+```
+
+❌ **Bad:**
+```
+packages/domains/auth/src/interfaces/graphql/authResolvers.ts
+packages/shared/graphql-composer/src/schemaMerger.ts
+apps/auth/src/middleware/rateLimiter.ts
+```
+
+## Enforcement
+When creating new files, always use kebab-case naming. When suggesting file names or refactoring, convert existing files to kebab-case format.
