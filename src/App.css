@@ -1,0 +1,157 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+:root {
+  --background-color: #2b2b2b; /* Dark background */
+  --text-color: #e0c097; /* Brass-like text color */
+  --border-color: #8c7b75; /* Copper-like border color */
+  --card-background: #3e3e3e; /* Dark card background */
+  --deck-background: #4a4a4a; /* Slightly lighter for deck */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Courier New', Courier, monospace; /* Steampunk-like font */
+}
+
+.app {
+  text-align: center;
+  padding: 2rem;
+}
+
+.board {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 100vh;
+  gap: 200px;
+}
+
+.player-area {
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--card-background);
+}
+
+.deck-and-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.deck {
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  width: 80px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--deck-background);
+  transform: rotate(90deg);
+}
+
+.active-card {
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  width: 80px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-background);
+}
+
+.card {
+  border: 2px solid var(--border-color);
+  padding: 1rem;
+  width: 80px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--card-background);
+}
+
+.deck-list-container {
+  position: relative;
+}
+
+.deck-list {
+  display: none;
+  background-color: var(--card-background);
+  border: 1px solid var(--border-color);
+  z-index: 10;
+  width: 100%;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-info {
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  width: calc(20% - 10px); /* 5 cards per row, accounting for gap */
+  box-sizing: border-box;
+  height: 170px;
+  margin: 10px 0;
+}
+
+.deck-list-container:hover .deck-list {
+  display: flex;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .board {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .player-area {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .deck-and-card {
+    flex-direction: column;
+    align-items: center;
+  }
+}
