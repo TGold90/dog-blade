@@ -36,19 +36,21 @@ function Board() {
   );
 
   return (
-    <div className="w-full h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 p-8 overflow-auto">
-      <div className="max-w-7xl mx-auto space-y-8">
+    <div className="w-full h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 overflow-hidden flex flex-col p-4">
+      <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-between gap-2">
         
         {/* Opponent Mat */}
-        <CardMat
-          deckCount={opponentDeckCount}
-          incomingCards={opponentIncomingCards}
-          isOpponent={true}
-          onDeckClick={() => console.log('Opponent deck clicked')}
-        />
+        <div className="flex-shrink-0">
+          <CardMat
+            deckCount={opponentDeckCount}
+            incomingCards={opponentIncomingCards}
+            isOpponent={true}
+            onDeckClick={() => console.log('Opponent deck clicked')}
+          />
+        </div>
 
         {/* Battle Area */}
-        <div className="flex flex-col items-center gap-6 py-8">
+        <div className="flex flex-col items-center justify-center gap-3 flex-shrink-0">
           {/* Opponent Active Card */}
           <div className="relative group">
             <Card card={opponentActiveCard} size="large" />
@@ -58,7 +60,7 @@ function Board() {
           </div>
 
           {/* VS indicator */}
-          <div className="text-4xl font-bold text-yellow-400 animate-pulse">
+          <div className="text-2xl font-bold text-yellow-400 animate-pulse">
             ⚔️ VS ⚔️
           </div>
 
@@ -72,12 +74,14 @@ function Board() {
         </div>
 
         {/* Player Mat */}
-        <CardMat
-          deckCount={playerDeckCount}
-          incomingCards={playerIncomingCards}
-          isOpponent={false}
-          onDeckClick={() => console.log('Player deck clicked')}
-        />
+        <div className="flex-shrink-0">
+          <CardMat
+            deckCount={playerDeckCount}
+            incomingCards={playerIncomingCards}
+            isOpponent={false}
+            onDeckClick={() => console.log('Player deck clicked')}
+          />
+        </div>
 
       </div>
     </div>
